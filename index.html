@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תערוכה דיגיטלית - שלד</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col items-center justify-center p-4">
+
+    <div id="home-page" class="w-full max-w-4xl flex flex-col items-center text-center">
+        <h1 class="text-4xl font-bold mb-8 text-indigo-600">תערוכה דיגיטלית כיתה י'</h1>
+
+        <div class="carousel-container mb-12">
+            <div class="carousel-slide active" data-index="0">
+                <img src="https://placehold.co/800x500/6366F1/FFFFFF?text=תמונה+1+בקרוסלה" alt="תמונה לדוגמה 1 בקרוסלה" onerror="this.src='https://placehold.co/800x500/CCCCCC/FFFFFF?text=Error';">
+            </div>
+            <div class="carousel-slide" data-index="1">
+                <img src="https://placehold.co/800x500/EC4899/FFFFFF?text=תמונה+2+בקרוסלה" alt="תמונה לדוגמה 2 בקרוסלה" onerror="this.src='https://placehold.co/800x500/CCCCCC/FFFFFF?text=Error';">
+            </div>
+            <div class="carousel-slide" data-index="2">
+                <img src="https://placehold.co/800x500/10B981/FFFFFF?text=תמונה+3+בקרוסלה" alt="תמונה לדוגמה 3 בקרוסלה" onerror="this.src='https://placehold.co/800x500/CCCCCC/FFFFFF?text=Error';">
+            </div>
+            <div class="carousel-slide" data-index="3">
+                <img src="https://placehold.co/800x500/F59E0B/FFFFFF?text=תמונה+4+בקרוסלה" alt="תמונה לדוגמה 4 בקרוסלה" onerror="this.src='https://placehold.co/800x500/CCCCCC/FFFFFF?text=Error';">
+            </div>
+            <div class="carousel-dots">
+                </div>
+        </div>
+
+        <button id="enter-gallery-btn" class="gallery-button bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-lg text-xl shadow-lg">
+            כניסה לגלריה
+        </button>
+    </div>
+
+    <div id="gallery-page" class="w-full max-w-6xl hidden p-4">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-3xl font-bold text-indigo-600">גלריית התמונות</h2>
+            <button id="back-to-home-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">
+                חזרה לדף הבית
+            </button>
+        </div>
+        <div id="gallery-grid-container" class="gallery-grid">
+            </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <div class="modal-inner-content">
+            <span class="close-modal" id="closeModalBtn">&times;</span>
+            <img class="modal-content-image" id="modalImage" alt="תמונה מוגדלת">
+            <div class="modal-details">
+                <h3 id="modalCreatorTitle">שם היוצר/ת:</h3>
+                <p id="modalCreator"></p>
+                <h3 id="modalInstructionsTitle">הנחיות היצירה:</h3>
+                <p id="modalInstructions"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

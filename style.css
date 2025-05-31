@@ -1,0 +1,164 @@
+/* style.css */
+/* Global styling - Tailwind handles most of this via classes in HTML */
+body {
+    font-family: 'Inter', sans-serif;
+    /* Tailwind classes bg-gray-100, text-gray-800, min-h-screen etc. are in the HTML body tag */
+}
+
+/* Carousel Styles */
+.carousel-container {
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem; /* Tailwind: rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Tailwind: shadow-lg or shadow-xl */
+    /* mb-12 in HTML */
+}
+
+.carousel-slide {
+    display: none; /* Managed by JS and 'active' class */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer; /* הוספת סמן לחיץ לתמונות הקרוסלה */
+}
+
+.carousel-slide.active {
+    display: block;
+    opacity: 1;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px; /* Tailwind: bottom-5 */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px; /* Tailwind: space-x-2 (approx) */
+}
+
+.carousel-dot {
+    width: 12px; /* Tailwind: w-3 */
+    height: 12px; /* Tailwind: h-3 */
+    background-color: rgba(255, 255, 255, 0.5); /* Example: bg-white bg-opacity-50 */
+    border-radius: 50%; /* Tailwind: rounded-full */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: white; /* Example: bg-white */
+}
+
+/* Gallery Button (Specific hover effects if not covered by Tailwind hover states) */
+.gallery-button {
+    /* Tailwind classes like bg-indigo-600, hover:bg-indigo-700, text-white, font-bold etc. are in HTML */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.gallery-button:hover {
+    transform: translateY(-2px);
+    /* box-shadow is often handled by Tailwind hover states like hover:shadow-md */
+}
+
+/* Gallery Grid Styles */
+.gallery-grid {
+    display: grid;
+    /* Tailwind can do this with grid-cols-X or responsive variants */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem; /* Tailwind: gap-4 */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem; /* Tailwind: rounded-lg */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Tailwind: shadow-md */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05); /* Tailwind: hover:scale-105 */
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2); /* Tailwind: hover:shadow-xl */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Managed by JS */
+    position: fixed;
+    z-index: 1000; /* Tailwind: z-50 (example) */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8); /* Example: bg-black bg-opacity-80 */
+    align-items: center; /* Tailwind: flex items-center */
+    justify-content: center; /* Tailwind: flex justify-center */
+    padding: 20px; /* Tailwind: p-5 */
+}
+
+.modal-inner-content {
+    background-color: #fefefe; /* Tailwind: bg-white */
+    margin: auto;
+    padding: 20px; /* Tailwind: p-5 */
+    border-radius: 0.5rem; /* Tailwind: rounded-lg */
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: right; /* Tailwind: text-right */
+    position: relative; /* Added for close button positioning context */
+}
+
+.modal-content-image {
+    display: block;
+    max-width: 100%;
+    max-height: 60vh; /* Can be controlled with Tailwind max-h-XX */
+    margin: 0 auto 15px auto; /* Tailwind: mx-auto mb-4 */
+    border-radius: 0.5rem; /* Tailwind: rounded-lg */
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px; /* Tailwind: top-5 */
+    right: 20px; /* Tailwind: right-5 */
+    color: #333; /* Tailwind: text-gray-700 */
+    font-size: 40px;
+    font-weight: bold; /* Tailwind: font-bold */
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other modal content */
+    line-height: 1; /* Prevents large line height from affecting position */
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #777; /* Tailwind: hover:text-gray-500 */
+    text-decoration: none;
+}
+
+.modal-details h3 {
+    font-size: 1.25rem; /* Tailwind: text-xl */
+    font-weight: bold; /* Tailwind: font-bold */
+    color: #4A5568; /* Tailwind: text-gray-700 */
+    margin-top: 10px; /* Tailwind: mt-2.5 (approx) */
+    margin-bottom: 5px; /* Tailwind: mb-1 (approx) */
+}
+
+.modal-details p {
+    font-size: 1rem; /* Tailwind: text-base */
+    color: #718096; /* Tailwind: text-gray-600 */
+    margin-bottom: 10px; /* Tailwind: mb-2.5 (approx) */
+    white-space: pre-wrap; /* Preserves line breaks from JS strings */
+}
